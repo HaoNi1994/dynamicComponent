@@ -1,0 +1,55 @@
+:host {
+    text-align: center;
+}
+
+nz-header,
+nz-footer {
+    background: #7dbcea;
+    color: #fff;
+}
+
+nz-footer {
+line-height: 1.5;
+}
+
+nz-sider {
+    color: #fff;
+    line-height: 120px;
+    background: none;
+}
+
+nz-sider:hover {
+    overflow: auto;
+}
+
+nz-content {
+    background: rgba(16, 142, 233, 1);
+    color: #fff;
+    min-height: 120px;
+    line-height: 120px;
+}
+
+nz-layout {
+    height: 100%;
+    margin-bottom: 48px;
+    overflow: hidden;
+}
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+    width:5px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    /* -webkit-box-shadow:inset006pxrgba(0,0,0,0.3); */
+    border-radius:10px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius:10px;
+    background: #ccc;
+    /* -webkit-box-shadow:inset006pxrgba(0,0,0,0.5); */
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background:#ccc;
+}
