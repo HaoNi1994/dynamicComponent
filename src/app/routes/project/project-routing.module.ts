@@ -1,9 +1,11 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { ProjectComponent } from "./project.component";
+import { NoDataComponent } from "../no-data/no-data.component";
+import { ProjectDetailComponent } from "./project-detail/project-detail.component";
 
 const routes: Routes = [
-    { path: '', component: ProjectComponent}
+    { path: '', component: NoDataComponent},
+    { path: ':id', component: ProjectDetailComponent}
 ];
 
 @NgModule({

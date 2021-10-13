@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', loadChildren: './routes/project/project.module#ProjectModule'},
+  { path: '', redirectTo: 'project', pathMatch: 'full'},
   { path: 'project', loadChildren: './routes/project/project.module#ProjectModule'},
   { path: 'task', loadChildren: './routes/task/task.module#TaskModule'}
 ];

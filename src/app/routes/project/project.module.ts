@@ -1,11 +1,14 @@
 import { NgModule } from "@angular/core";
 import { ProjectRoutingModule } from "./project-routing.module";
-import { ProjectComponent } from "./project.component";
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { NoDataComponent } from "../no-data/no-data.component";
+import { SharedModule } from "src/app/common/shared/shared.module";
 
 @NgModule({
-    declarations: [ProjectComponent],
+    declarations: [ProjectDetailComponent,NoDataComponent],
     imports: [
-        ProjectRoutingModule
+        ProjectRoutingModule,
+        SharedModule
     ],
     entryComponents: []
 })

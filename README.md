@@ -28,19 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 
-#### 记录:
-
-```
-*2021-10-12
-创建angular8项目
-引入ngzorro和mock框架
-引入ngzorro样式
-创建common公共模块和component组件模块
-```
-
-
-
-#### 模块
+### 模块
 
 ```
 *两个页面
@@ -57,9 +45,40 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 
-技术栈
+### 技术栈
 
 ```
 angular8,ngzorroUI框架,mock,TypeScript
+```
+
+
+
+### 记录
+
+```
+*2021-10-12
+创建angular8项目
+引入ngzorro和mock框架
+引入ngzorro样式
+创建common公共模块和component组件模块
+右边导航栏滑动条样式修改
+
+*2021-10-13
+完善左边导航栏和右边列表展示
+ngzorro图标的显示问题---------------------------------------------------------------------
+import { IconDefinition } from '@ant-design/icons-angular';
+import { NzIconModule, NZ_ICON_DEFAULT_TWOTONE_COLOR, NZ_ICONS } from 'ng-zorro-antd/icon';
+import { BookOutline } from '@ant-design/icons-angular/icons';
+const icons: IconDefinition[] = [ BookOutline ];
+imports: [NzIconModule]
+providers: [
+    // { provide: NZ_ICON_DEFAULT_TWOTONE_COLOR, useValue: '#00ff00' }, // 不提供的话，即为 Ant Design 的主题蓝色
+    { provide: NZ_ICONS, useValue: icons }
+  ],
+
+使用flex布局，使空值页面居中--------------------------------------------------------
+ display: flex;
+ align-items: center;
+ justify-content: center;
 ```
 

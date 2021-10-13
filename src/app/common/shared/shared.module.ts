@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
-  declarations: [SliderComponent],
+  declarations: [],
   imports: [
     CommonModule,
     NgZorroAntdModule,
@@ -16,8 +15,7 @@ import { SliderComponent } from './components/slider/slider.component';
     CommonModule,
     NgZorroAntdModule,
     FormsModule,
-    ReactiveFormsModule,
-    SliderComponent
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }
