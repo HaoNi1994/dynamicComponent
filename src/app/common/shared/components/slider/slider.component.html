@@ -1,18 +1,12 @@
 <ul nz-menu nzMode="inline" style="height: 100%;">
-    <li nz-submenu nzTitle="小学">
+  <ng-container *ngFor="let item of meau">
+    <li nz-submenu [nzTitle]="item.grade" [nzOpen]="item.status || false">
       <ul>
-        <li nz-menu-item>
+        <li nz-menu-item (click)="go(item.id, item)" *ngFor="let children of item.children">
           <span><i nz-icon nzType="book" nzTheme="outline"></i></span>
-          <span>数学</span>
+          <span>{{children.name}}</span>
         </li>
       </ul>
     </li>
-    <li nz-submenu nzTitle="初中">
-      <ul>
-        <li nz-menu-item>
-          <span><i nz-icon nzType="book" nzTheme="outline"></i></span>
-          <span>语文</span>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  </ng-container>
+</ul>

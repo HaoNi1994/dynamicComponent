@@ -23,7 +23,10 @@
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1",
     "@delon/mock": "^1.5.1",
-    "ng-zorro-antd": "^8.5.2"
+    "ng-zorro-antd": "^8.5.2",
+    "lodash": "^4.17.4",
+    "@ngrx/store": "^8.6.1",
+    "@ngrx/store-devtools": "^8.6.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.29",
