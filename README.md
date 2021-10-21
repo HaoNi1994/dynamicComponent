@@ -56,16 +56,16 @@ angular8,ngzorroUI框架,mock,TypeScript
 ### 记录
 
 ```
-*2021-10-12
+*2021-10-12************************************************************************
 创建angular8项目
 引入ngzorro和mock框架
 引入ngzorro样式
 创建common公共模块和component组件模块
 右边导航栏滑动条样式修改
 
-*2021-10-13
+*2021-10-13***********************************************************************
 完善左边导航栏和右边列表展示
-ngzorro图标的显示问题---------------------------------------------------------------------
+ngzorro图标的显示问题-----------------
 import { IconDefinition } from '@ant-design/icons-angular';
 import { NzIconModule, NZ_ICON_DEFAULT_TWOTONE_COLOR, NZ_ICONS } from 'ng-zorro-antd/icon';
 import { BookOutline } from '@ant-design/icons-angular/icons';
@@ -76,12 +76,23 @@ providers: [
     { provide: NZ_ICONS, useValue: icons }
   ],
 
-使用flex布局，使空值页面居中--------------------------------------------------------
+使用flex布局，使空值页面居中---------
  display: flex;
  align-items: center;
  justify-content: center;
  
- *2021-10-14
+ *2021-10-14***********************************************************************
+ 使用ngstore完成数据管理
  
+ *2021-10-21***********************************************************************
+ 写表格，在shared里面创建一个css文件夹，新建一个common.css公共样式，并在style.css中引入
+ 写任务详情的组件detail
+ 写动态组件中间件middle.component.ts,在中间件中注入一个parent组件
+ 写input框公共组件
+ 在这里可以不需要哦parent这个组件，直接引入MiddleComponent,调用changePropertyValue方法
+ *在middle.component.ts中
+ 	// 拿到一个组件
+      const component = _.find(COMMON_COMPONENT, { type: this._property.type 			      }).component;
+     调用这个方法，会导致又跳回到index.ts;导致 Circular dependency detected；把COMMON_COMPONENT换个地方，放在在util中定义的一个配置就可以了
 ```
 

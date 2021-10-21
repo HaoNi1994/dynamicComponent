@@ -1,0 +1,15 @@
+<nz-layout>
+    <nz-header style="text-align: center;">公共部分</nz-header>
+    <nz-content>
+        <!-- 中间件组件 -->
+        <div style="display: flex;flex-wrap: wrap;">
+            <div *ngFor="let property of detailData?.content" style="width: 30%;margin-right: 10px;">
+                <app-middle 
+                    [propertyValue] = "detailData?.porperties[property.key]?.value"
+                    [property] = "property"
+                    (changeSubmit) = "changePropertyValue($event, property, detailData?.id)"
+                ></app-middle>
+            </div>
+        </div>
+    </nz-content>
+</nz-layout>

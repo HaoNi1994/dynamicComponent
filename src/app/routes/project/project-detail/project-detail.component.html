@@ -1,1 +1,39 @@
-<p>{{projectInfo?.id}}</p>
+<nz-layout>
+    <nz-header>Header</nz-header>
+    <nz-content>
+        <div style="padding: 40px;" *ngIf="!loading">
+            <nz-table #basicTable [nzData]="data" [nzBordered]="true">
+                <thead>
+                    <tr>
+                        <th nzWidth="20%">标题</th>
+                        <th nzWidth="20%">状态</th>
+                        <th nzWidth="20%">编号</th>
+                        <th nzWidth="20%">类型</th>
+                        <th nzWidth="20%">负责人</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let data of basicTable.data">
+                        <tr (click)="detail(data)">
+                            <td>{{ data.title }}</td>
+                            <td>
+                                <span *ngIf="data.status === '进行中'" style="color: rgb(51, 51, 51);border-radius: 3px;padding: 5px 10px;" class="conducting">
+                                    <i nz-icon nzType="clock-circle" nzTheme="outline" class="conducting-icon"></i>
+                                    {{ data.status }}
+                                </span>
+                                <span *ngIf="data.status === '已完成'" style="color: rgb(51, 51, 51);border-radius: 3px;padding: 5px 10px;" class="completed">
+                                    <i nz-icon nzType="check-circle" nzTheme="outline" class="completed-icon"></i>
+                                    {{ data.status }}
+                                </span>
+                            </td>
+                            <td>{{ data.number }}</td>
+                            <td>{{ data.type }}</td>
+                            <td>{{ data.member }}</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </nz-table>
+        </div>
+        <nz-spin [nzSpinning]="loading" *ngIf="loading"></nz-spin>
+    </nz-content>
+</nz-layout>

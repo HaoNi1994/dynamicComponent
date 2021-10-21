@@ -7,3 +7,5 @@ import { ProjectInfo } from "../../type/store.type";
 
 // 第一个参数是一个字符串的标识符，是用来语义化我们这个动作是用来干什么
 export const SetProjectInfo = createAction('[project] Set projectInfo', props<{ projectInfo: ProjectInfo}>());
+export const SetTaskInfo = createAction('[task] Set taskInfo', props<{ taskInfo: any}>());
+

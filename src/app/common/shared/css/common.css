@@ -1,0 +1,19 @@
+.conducting {
+    background-color: rgba(255, 164, 21, 0.1)
+}
+
+.conducting-icon {
+    color: rgb(255, 164, 21)
+}
+
+.completed {
+    background-color: rgba(34, 215, 187, 0.1)
+}
+
+.completed-icon {
+    color: rgba(34, 215, 187)
+}
+
+.borderNone {
+    border: none;
+}

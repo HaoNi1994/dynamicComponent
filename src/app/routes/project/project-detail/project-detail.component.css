@@ -1,0 +1,11 @@
+.ant-layout {
+    background-color: #fff;
+}
+
+.ant-layout-header {
+    background: #f0f2f5;
+}
+
+.ant-table-tbody>tr {
+    cursor: pointer;
+}

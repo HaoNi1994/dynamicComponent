@@ -1,0 +1,11 @@
+.ant-input {
+    border: none;
+}
+
+.ant-input:hover {
+    border: 1px solid #d9d9d9;
+}
+
+.ant-input:focus {
+    border: 1px solid #1890ff;
+}

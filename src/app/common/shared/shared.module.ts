@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CONPONENTS, ENTRYCOMPONENTS } from './components';
 
 @NgModule({
-  declarations: [],
+  declarations: [...CONPONENTS],
   imports: [
     CommonModule,
     NgZorroAntdModule,
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
-  ]
+  ],
+  entryComponents: [...ENTRYCOMPONENTS]
 })
 export class SharedModule { }
