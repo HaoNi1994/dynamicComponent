@@ -4,6 +4,7 @@
 
 .ant-layout-header {
     background: #f0f2f5;
+    padding: 0;
 }
 
 .ant-table-tbody>tr {

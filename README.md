@@ -94,5 +94,11 @@ providers: [
  	// 拿到一个组件
       const component = _.find(COMMON_COMPONENT, { type: this._property.type 			      }).component;
      调用这个方法，会导致又跳回到index.ts;导致 Circular dependency detected；把COMMON_COMPONENT换个地方，放在在util中定义的一个配置就可以了
+     
+*2021-10-26**************************************************************************
+增加下拉框公共组件
+
+*2021-10-28***************************************************************************
+写项目详情头部的导航栏，使用的是ngzorro里面的导航栏组件
 ```
 

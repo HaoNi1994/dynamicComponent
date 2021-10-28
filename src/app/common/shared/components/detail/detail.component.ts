@@ -5,7 +5,8 @@ import { Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { HttpServcie } from '../../service/http.service';
 import { AppStoreModule } from '../../store';
-import { getProject, getTaksInfo } from '../../store/selectors/project.selector';
+import { getProject, getProjectInfo, getTaksInfo } from '../../store/selectors/project.selector';
+import { ProjectInfo } from '../../type/store.type';
 
 @Component({
   selector: 'app-detail',
@@ -15,6 +16,8 @@ import { getProject, getTaksInfo } from '../../store/selectors/project.selector'
 export class DetailComponent implements OnInit {
 
   public detailData: any;
+
+  public projectInfo: ProjectInfo;
 
   // 定义subject对象进行节流
   public subject = new Subject<any>();
@@ -33,6 +36,10 @@ export class DetailComponent implements OnInit {
       select(getTaksInfo),
       debounceTime(300),  // 300毫秒类多次点击不发送请求，超过300毫秒没点击后调用最后一次请求
     ).subscribe(res => this._storeUp(res));
+    appStore$.pipe(
+      select(getProjectInfo),
+      debounceTime(300),  // 300毫秒类多次点击不发送请求，超过300毫秒没点击后调用最后一次请求
+    ).subscribe(res => this._projectInfo(res));
   }
 
   private _storeUp(res: any) {
@@ -40,12 +47,18 @@ export class DetailComponent implements OnInit {
     this.detailData = res;
   }
 
+  private _projectInfo(res: any) {
+    // console.log(res,'res')
+    this.projectInfo = res;
+  }
+
 
   // 属性值改变后，调用属性修改API
   changePropertyValue(event?, property?, id?) {
     let param = {}
     param['value'] = event;
-    param['id'] = id;
+    param['taskId'] = id;
+    param['projectId'] = this.projectInfo.id;
     param['key'] = property.key;
     this.subject.next(param);
   }

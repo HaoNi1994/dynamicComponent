@@ -1,0 +1,11 @@
+:host ::ng-deep .ant-select-selection{
+    border: none;
+}
+
+:host ::ng-deep .ant-select-selection:hover {
+    border: 1px solid #d9d9d9;
+}
+
+:host ::ng-deep .ant-select-selection:focus {
+    border: 1px solid #1890ff;
+}

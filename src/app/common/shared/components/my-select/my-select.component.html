@@ -1,0 +1,9 @@
+<div>
+    <div style="padding-left: 11px;">
+        {{_property.name}}：
+    </div>
+    <nz-select [(ngModel)]="_value" nzAllowClear nzPlaceHolder="Choose" style="margin-bottom: 15px;width: 100%;" 
+        (ngModelChange)="change($event)" [nzShowArrow]="false">
+        <nz-option *ngFor="let item of datas" [nzValue]="item.value" [nzLabel]="item.label"></nz-option>
+      </nz-select>
+</div>

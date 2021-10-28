@@ -1,0 +1,12 @@
+<ul nz-menu nzMode="horizontal">
+    <ng-container *ngFor="let item of tabList; first as isFirst">
+        <li nz-menu-item [nzSelected]="tabInfo?.key === item.key" *ngIf="item.key !== 'more'" (click)="select(item)">
+            {{item.value}}
+        </li>
+        <li nz-submenu [nzTitle]="moreTitle || item.value" nzIcon="down" *ngIf="item.key === 'more'" [ngClass]="{'select': tabInfo?.key === 'more'}">
+            <ul>
+                <li nz-menu-item *ngFor="let data of item.content" (click)="select(data, 'more')">{{data.value}}</li>
+            </ul>
+        </li>
+    </ng-container>
+  </ul>

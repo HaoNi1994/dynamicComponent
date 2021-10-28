@@ -1,6 +1,6 @@
 // 任务详情的key,value
 export const KeyValueRelationship = {
-    title: '编号',
+    title: '标题',
     status: '状态',
     number: '编号',
     type: '类型',
@@ -9,8 +9,8 @@ export const KeyValueRelationship = {
 
 export const KeyComponentRelationship = {
     title: '1',
-    status: '1',
+    status: '2',
     number: '1',
-    type: '1',
+    type: '2',
     member: '1',
 }

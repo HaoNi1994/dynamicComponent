@@ -86,7 +86,7 @@ export class ProjectDetailComponent implements OnInit {
       detailData = handleData;
     }
     const modal = this.modalService.create({
-      nzTitle: '详情',
+      nzTitle: `${data.number}${data.title}`,
       nzContent: DetailComponent,
       nzComponentParams: {
       },

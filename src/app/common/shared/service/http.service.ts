@@ -31,4 +31,10 @@ export class HttpServcie {
         const url = '/nihao/api/v1/update/property';
         return this.httpClient.post(url, param);
     }
+
+    // 获取属性数据源
+    getPropertits(type: string) {
+        const url = `/nihao/api/v1/getPropertits/${type}`;
+        return this.httpClient.get(url, {});
+    }
 }

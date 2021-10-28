@@ -1,5 +1,7 @@
 <nz-layout>
-    <nz-header>Header</nz-header>
+    <nz-header>
+        <app-project-detail-header></app-project-detail-header>
+    </nz-header>
     <nz-content>
         <div style="padding: 40px;" *ngIf="!loading">
             <nz-table #basicTable [nzData]="data" [nzBordered]="true">
