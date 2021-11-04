@@ -15,9 +15,14 @@ export class HttpServcie {
     }
 
     // 根据项目id获取数据
-    getProjectData(projectId: string) {
-        const url = `/nihao/api/v1/getProjectData?projectId=${projectId}`;
-        return this.httpClient.get(url, {});
+    getProjectData(projectId: string, tab?: string) {
+        if(tab && (tab === 'firstInstance' || tab === 'twoInstance' || tab === 'firstChange')) {
+            const url = `/nihao/api/v1/getProjectData?projectId=${projectId}&&tab=${tab}`;
+            return this.httpClient.get(url, {});
+        } else {
+            const url = `/nihao/api/v1/getProjectData?projectId=${projectId}`;
+            return this.httpClient.get(url, {});
+        }
     }
 
     // 根据项目id获取数据

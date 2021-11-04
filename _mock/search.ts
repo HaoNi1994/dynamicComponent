@@ -167,6 +167,25 @@ export const SEARCH = {
             member: '刘老师',
         }
     },
+    // 根据id和菜单获取taskData
+    'GET /nihao/api/v1/getProjectData?projectId=1&&tab=firstInstance': {
+        code: 200,
+        data: [
+            {id: '1', title: '奥数课程', status: '进行中', number: '2233', type: '小学-数学', member: '黄老师'}
+        ]
+    },
+    'GET /nihao/api/v1/getProjectData?projectId=1&&tab=twoInstance': {
+        code: 200,
+        data: []
+    },
+    'GET /nihao/api/v1/getProjectData?projectId=2&&tab=firstChange': {
+        code: 200,
+        data: [
+            {id: '6', title: '诗词课程', status: '进行中', number: '2133', type: '小学-语文', member: '黄老师'},
+            {id: '7', title: '文言文课程', status: '进行中', number: '2134', type: '小学-语文', member: '王老师'},
+            {id: '8', title: '文字课程', status: '进行中', number: '2135', type: '小学-语文', member: '程老师'},
+        ]
+    },
     // 属性修改
     'post /nihao/api/v1/update/property': {
         success: true

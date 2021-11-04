@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { HttpServcie } from 'src/app/common/shared/service/http.service';
 import { AppStoreModule } from 'src/app/common/shared/store';
-import { getProject, getProjectInfo } from 'src/app/common/shared/store/selectors/project.selector';
-import { ProjectInfo } from 'src/app/common/shared/type/store.type';
+import { getProject, getProjectInfo, getTabInfo, getTaksData } from 'src/app/common/shared/store/selectors/project.selector';
+import { ProjectInfo, TabInfo } from 'src/app/common/shared/type/store.type';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { ProjectData } from 'src/app/common/shared/type/data.type';
 import { Subject } from 'rxjs';
 import { NzModalService } from 'ng-zorro-antd';
 import { DetailComponent } from 'src/app/common/shared/components/detail/detail.component';
 import { KeyComponentRelationship, KeyValueRelationship } from 'src/app/common/shared/utils/key-value';
-import { SetTaskInfo } from 'src/app/common/shared/store/actions/project.action';
+import { SetTaskData, SetTaskInfo } from 'src/app/common/shared/store/actions/project.action';
 
+import * as _ from 'lodash';
+import { getLocalStorage } from 'src/app/common/shared/utils/localstorage';
 @Component({
   selector: 'app-project-detail',
   templateUrl: './project-detail.component.html',
@@ -40,23 +42,30 @@ export class ProjectDetailComponent implements OnInit {
     this._getDetail();
     const appStore$ = this.store$.pipe(select(getProject));  // 从store根模块中获取到playerReducer的流
     appStore$.pipe(
-      select(getProjectInfo),
+      select(getTaksData),
       debounceTime(300),  // 300毫秒类多次点击不发送请求，超过300毫秒没点击后调用最后一次请求
-      ).subscribe(res => this._storeUp(res));
+      ).subscribe(res => this._getTaskData(res));
+    appStore$.pipe(
+      select(getTabInfo),
+      debounceTime(300),  // 300毫秒类多次点击不发送请求，超过300毫秒没点击后调用最后一次请求
+      ).subscribe(res => this.getTabInfo(res));
   }
 
-  private _storeUp(res: ProjectInfo) {
+
+  private _getTaskData(data: ProjectData) {
+    console.log(data,'dddd')
+    if(data !== null) {
+      this.data = data;
+      this.loading = false;
+    } else {
+      this.loading = true;
+    }
+  }
+
+  // 获取tab的监听结果
+  getTabInfo(res: TabInfo) {
+    console.log(7777)
     this.loading = true;
-    this.projectInfo = res;
-    // 根据projectInfo里面的id查找数据
-    this.httpServcie.getProjectData(this.projectInfo.id).subscribe(
-      res => {
-        if(res['data']) {
-          this.data = res['data'];
-          this.loading = false;
-        }
-      }
-    )
   }
 
   // 获取详情

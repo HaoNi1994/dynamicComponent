@@ -7,7 +7,7 @@ import { MeauList } from '../../type/meau.type';
 import * as _ from 'lodash';
 import { Store } from '@ngrx/store';
 import { AppStoreModule } from '../../store';
-import { SetProjectInfo, SetTablInfo } from '../../store/actions/project.action';
+import { SetProjectInfo, SetTabInfo } from '../../store/actions/project.action';
 
 @Component({
   selector: 'app-slider',
