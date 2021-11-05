@@ -97,6 +97,8 @@ export class ProjectDetailHeaderComponent implements OnInit {
   public async _changeTab(data) {
     if(data.type && data.type === 'more') {
         this.moreTitle = data.item.value;
+    } else {
+      this.moreTitle = null;
     }
     this.store$.dispatch(SetTabInfo({tabInfo: data.item}));
     const tabLists: Array<any> = getLocalStorage('tabList');

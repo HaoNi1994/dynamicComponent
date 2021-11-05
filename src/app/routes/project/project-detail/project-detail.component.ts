@@ -53,7 +53,6 @@ export class ProjectDetailComponent implements OnInit {
 
 
   private _getTaskData(data: ProjectData) {
-    console.log(data,'dddd')
     if(data !== null) {
       this.data = data;
       this.loading = false;
@@ -64,7 +63,6 @@ export class ProjectDetailComponent implements OnInit {
 
   // 获取tab的监听结果
   getTabInfo(res: TabInfo) {
-    console.log(7777)
     this.loading = true;
   }
 
